@@ -1,0 +1,33 @@
+<body>
+    <script type="text/javascript" src="https://rawgit.com/coalang-soft/animate-js/master/animate.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/coalang-soft/animate-js/master/browser.js"></script>
+    <script>
+        
+        var Keyframe = Animate.Keyframe;
+        var Timeline = Animate.Timeline;
+        
+        //Time unit: frames (number,time)
+        var kf1 = new Keyframe(100.0,0);
+        var kf2 = new Keyframe(255.0,200.0);
+        var kf3 = new Keyframe(100.0,400.0);
+        var tl = new Timeline([
+            kf1, kf2, kf3
+        ]);
+        console.log(tl);
+
+        function countTimer(i){
+            if(i === undefined){
+                return 0;
+            }
+            return i+1;
+        }
+        
+        function action(num){
+            console.log(num);
+            document.body.style.backgroundColor = 
+                "rgb(" + num + "," + num + "," + num + ")";
+        }
+        
+        playTimeline(tl,action,countTimer,true);
+    </script>
+</body>
